@@ -22,6 +22,5 @@ public class Establishment {
     @ManyToOne
     @JoinColumn(name = "merchant_id")
     private Merchant merchant;
-
-
+    // Getters y setters
 }
