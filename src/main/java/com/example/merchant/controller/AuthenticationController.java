@@ -1,25 +1,23 @@
 package com.example.merchant.controller;
 
-import com.example.merchant.dto.AuthenticationRequest;
+import com.example.merchant.entity.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
-    //private final JwtTokenProvider jwtTokenProvider;
+    //private final AuthenticationService authenticationService;
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody AuthenticationRequest request) {
-        // Lógica de autenticación aquí
-        String token = null;//jwtTokenProvider.createToken(request.getEmail(), Arrays.asList("USER"));
+        String token = "";//authenticationService.authenticate(request.getEmail(), request.getPassword());
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
         return ResponseEntity.ok(response);

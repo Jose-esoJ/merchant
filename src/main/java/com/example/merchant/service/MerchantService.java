@@ -21,8 +21,8 @@ public class MerchantService {
 
     private final EstablishmentRepository establishmentRepository;
 
-    public List<MerchantDTO> getAllMerchants(Pageable pageable, String name, String city, String status) {
-        List<Merchant> merchants = merchantRepository.findByNameContainingAndCityContainingAndStatusContaining(name, city, status, pageable);
+    public List<MerchantDTO> getAllMerchants( String name, String city, String status) {
+       List<Merchant> merchants = merchantRepository.findByNameContainingAndCityContainingAndStatusContaining(name, city, status);
         return merchants.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 

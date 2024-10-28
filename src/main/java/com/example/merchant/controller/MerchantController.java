@@ -3,7 +3,6 @@ package com.example.merchant.controller;
 import com.example.merchant.dto.MerchantDTO;
 import com.example.merchant.service.MerchantService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,7 @@ public class MerchantController {
             @RequestParam(required = false) String city,
             @RequestParam(required = false) String status) {
         Pageable pageable = (Pageable) PageRequest.of(page, size);
-        List<MerchantDTO> merchants = merchantService.getAllMerchants(pageable, name, city, status);
+        List<MerchantDTO> merchants = merchantService.getAllMerchants(name, city, status);
         return ResponseEntity.ok(merchants);
     }
 

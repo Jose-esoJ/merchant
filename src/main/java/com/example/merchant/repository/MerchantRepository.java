@@ -7,5 +7,5 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface MerchantRepository extends JpaRepository<Merchant, Long> {
-    List<Merchant> findByNameContainingAndCityContainingAndStatusContaining(String name, String city, String status, Pageable pageable);
+   List<Merchant> findByNameContainingAndCityContainingAndStatusContaining(String name, String city, String status );
 }
