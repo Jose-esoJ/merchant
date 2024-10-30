@@ -9,14 +9,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig { 
+public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/auth").permitAll()
+                .requestMatchers("/api/auth/login","/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll() // Permite acceso sin autenticación
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

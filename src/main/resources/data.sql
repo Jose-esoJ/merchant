@@ -15,3 +15,4 @@ INSERT INTO Establishment (name, revenue, employee_count, merchant_id) VALUES
                        ('Establishment Six', 8900.50, 12, 4),
                        ('Establishment Seven', 13400.90, 14, 1),
                        ('Establishment Eight', 45500.75, 9, 3);
+
